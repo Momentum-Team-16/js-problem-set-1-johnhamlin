@@ -99,4 +99,20 @@ const gcd = (a, b) => {
   // return if numbers not positive
   if (a < 0 || b < 0) return;
   let d = 0;
+
+  while (isEven(a) && isEven(b)) {
+    a /= 2;
+    b /= 2;
+    d++;
+  }
+
+  while (a !== b) {
+    if (isEven(a)) a /= 2;
+    else if (isEven(b)) b /= 2;
+    else if (a > b) a = (a - b) / 2;
+    else b = (b - a) / 2;
+  }
+
+  let g = a;
+  return g * 2 ** d;
 };
