@@ -24,10 +24,12 @@ const isEven = n => n % 2 === 0;
 // 6. Create a function called fahrenheitToCelsius that takes a
 // Fahrenheit temperature as an argument and returns the
 // temperature in Celsius.
+const fahrenheitToCelsius = fTemp => (fTemp - 32) * (5 / 9);
 
 // 7. Create a function called celsiusToFahrenheit that takes a
 // Celsius temperature as an argument and returns the
 // temperature in Fahrenheit.
+const celsiusToFahrenheit = cTemp => cTemp * 1.8 + 32;
 
 // 8. Create a function called fahrenheitToKelvin that takes a
 // Fahrenheit temperature as an argument and returns the
@@ -35,10 +37,12 @@ const isEven = n => n % 2 === 0;
 // fahrenheitToCelsius function.
 // Absolute zero (0 K) is equivalent to −273.15 C.
 // 1 degree Kelvin equals 1 degree Celsius.
+const fahrenheitToKelvin = fTemp => fahrenheitToCelsius(fTemp) + 273.15;
 
 // 9. Create a function called lesser that takes two numbers as
 // arguments and returns the lesser of them. This function should
 // use an if/else statement.
+const lesser = (a, b) => (a < b ? a : b);
 
 // 10. Create a function called multigreeting that takes a name
 // and a language code and returns a version of "Hello, <name>!"
@@ -51,6 +55,19 @@ const isEven = n => n % 2 === 0;
 // eo - Saluton, <name>!
 //
 // If any other language code is used, return nothing.
+const multigreeting = (name, lang) => {
+  const GREETINGS_MAP = {
+    en: 'Hello',
+    es: '¡Hola',
+    fr: 'Bonjour',
+    eo: 'Saluton',
+  };
+
+  // only return a value if the language code is valid
+  if (GREETINGS_MAP[lang]) {
+    return `${GREETINGS_MAP[lang]}, ${name}!`;
+  }
+};
 
 // 11. The greatest common divisor (https://en.wikipedia.org/wiki/Greatest_common_divisor)
 // is the largest integer that, given two other integers, can be divided into them. For
@@ -78,3 +95,8 @@ const isEven = n => n % 2 === 0;
 
 // Write a function called gcd that takes two arguments and returns the greatest common
 // divisor using the instructions above.
+const gcd = (a, b) => {
+  // return if numbers not positive
+  if (a < 0 || b < 0) return;
+  let d = 0;
+};
